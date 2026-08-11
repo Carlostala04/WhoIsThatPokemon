@@ -5,9 +5,22 @@ import { usePokemon } from "./hooks/UsePokemon";
 
 const MAX_ATTEMPS = 3;
 
+const GENERACIONES = [
+  { id: 1, nombre: "Generación I - Kanto" },
+  { id: 2, nombre: "Generación II - Johto" },
+  { id: 3, nombre: "Generación III - Hoenn" },
+  { id: 4, nombre: "Generación IV - Sinnoh" },
+  { id: 5, nombre: "Generación V - Teselia" },
+  { id: 6, nombre: "Generación VI - Kalos" },
+  { id: 7, nombre: "Generación VII - Alola" },
+  { id: 8, nombre: "Generación VIII - Galar" },
+  { id: 9, nombre: "Generación IX - Paldea" },
+];
+
 function App() {
+  const [generationId, setGenerationId] = useState(1);
   const [attemps, setAttemps] = useState(MAX_ATTEMPS);
-  const { pokemon, loading, error, refetch } = usePokemon();
+  const { pokemon, loading, error, refetch } = usePokemon(generationId);
   const audioRef = useRef(null);
   const [pokemonName, setPokemonName] = useState("");
   const [isPokemon, setIsPokemon] = useState(false);
@@ -16,6 +29,20 @@ function App() {
   const [loseMessage, setLoseMessage] = useState("");
 
   const gameOver = isPokemon || attemps === 0;
+
+  const resetRound = () => {
+    setPokemonName("");
+    setIsPokemon(false);
+    setAttemps(MAX_ATTEMPS);
+    setMessage("");
+    setWinMessage("");
+    setLoseMessage("");
+  };
+
+  const handleGenerationChange = (e) => {
+    setGenerationId(Number(e.target.value));
+    resetRound();
+  };
 
   const verifyName = () => {
     if (gameOver || !pokemon) return;
@@ -39,12 +66,7 @@ function App() {
   };
 
   const playAgain = () => {
-    setPokemonName("");
-    setIsPokemon(false);
-    setAttemps(MAX_ATTEMPS);
-    setMessage("");
-    setWinMessage("");
-    setLoseMessage("");
+    resetRound();
     refetch();
     audioRef.current?.play();
   };
@@ -54,6 +76,20 @@ function App() {
         <audio ref={audioRef} src="/audio/who_is_pokemon.mp3" />
         <div className="header">
           <h1>¿Quien es ese pokemon?</h1>
+        </div>
+        <div className="generation-select">
+          <label htmlFor="generation">Generación:</label>
+          <select
+            id="generation"
+            value={generationId}
+            onChange={handleGenerationChange}
+          >
+            {GENERACIONES.map((gen) => (
+              <option key={gen.id} value={gen.id}>
+                {gen.nombre}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="guess">
           {loading && <p>Cargando...</p>}
