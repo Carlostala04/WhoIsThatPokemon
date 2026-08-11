@@ -95,6 +95,20 @@ main {
   text-align: center;
 }
 
+.generation-select {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-color);
+}
+
+.generation-select select {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  font-family: var(--font);
+}
+
 .message-reveal h3 {
   margin: 0;
   font-family: var(--font);
