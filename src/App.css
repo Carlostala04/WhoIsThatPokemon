@@ -9,7 +9,11 @@ main {
   flex-direction: column;
   gap: 24px;
 }
-
+label {
+  font-family: var(--font);
+  -webkit-text-stroke: 1px var(--border-text);
+  font-size: 20px;
+}
 .header {
   text-align: center;
 }
@@ -98,7 +102,7 @@ main {
 .generation-select {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 20px;
   color: var(--text-color);
 }
 
@@ -115,7 +119,6 @@ main {
   color: var(--text-color);
   -webkit-text-stroke: 1px var(--border-text);
   letter-spacing: 2px;
-0);
 }
 
 .reveal {
