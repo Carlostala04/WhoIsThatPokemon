@@ -1,7 +1,17 @@
 const API_URL = "https://pokeapi.co/api/v2/pokemon/";
-export async function obtenerPokemonAleatorio() {
-  let id = Math.floor(Math.random() * (100 - 1 + 1)) + 1;
-  const response = await fetch(`${API_URL}${id}`);
+const GENERATION_URL = "https://pokeapi.co/api/v2/generation/";
+
+export async function obtenerGeneracion(id) {
+  const response = await fetch(`${GENERATION_URL}${id}`);
+  const dataGen = await response.json();
+  return dataGen;
+}
+
+export async function obtenerPokemonAleatorio(generationId = 1) {
+  const generacion = await obtenerGeneracion(generationId);
+  const especies = generacion.pokemon_species;
+  const especieAleatoria = especies[Math.floor(Math.random() * especies.length)];
+  const response = await fetch(`${API_URL}${especieAleatoria.name}`);
   const data = await response.json();
   return data;
 }
