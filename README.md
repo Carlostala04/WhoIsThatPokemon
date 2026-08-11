@@ -23,9 +23,10 @@ Un mini-juego hecho con **React + Vite** que consulta la [PokéAPI](https://poke
 
 ## 🛠️ Tecnologías
 
-- [React 19](https://react.dev/)
-- [Vite](https://vite.dev/)
-- [PokéAPI](https://pokeapi.co/)
+[![React](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
+[![PokéAPI](https://img.shields.io/badge/Pok%C3%A9API-EF5350?style=for-the-badge&logo=pokemon&logoColor=FFCB05)](https://pokeapi.co/)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)](https://eslint.org/)
 
 ## 🚀 Empezar a jugar en local
 
