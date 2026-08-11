@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "pokemon-font";
+  src: url(../public/fonts/Pokemon\ Solid.ttf);
+}
+:root {
+  --font: "pokemon-font";
+  --text-color: rgb(224, 224, 28);
+  --border-text: blue;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url(../public/fondo.png) center center/cover no-repeat fixed;
+  position: relative;
+}
+
+h1 {
+  font-family: var(--font);
+  color: var(--text-color);
+  -webkit-text-stroke: 2px var(--border-text);
+  letter-spacing: 5px;
+  font-size: clamp(1.5rem, 6vw, 3rem);
+}
+

@@ -1,0 +1,109 @@
+main {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.guess {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guess img {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+  margin-right: 270px;
+}
+
+.hide {
+  filter: brightness(0);
+}
+
+.reveal {
+  filter: brightness(1);
+  animation: reveal-pop 0.4s ease;
+}
+
+@keyframes reveal-pop {
+  0% {
+    transform: scale(0.85);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.write-section {
+  display: flex;
+  gap: 10px;
+}
+
+.write-section input {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  width: 250px;
+  font-family: var(--font);
+  color: var(--text-color);
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.write-section input:disabled {
+  background: #eee;
+  color: #999;
+}
+
+.write-section button {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: var(--text-color);
+  color: #1a1a1a;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hint-message {
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.message-reveal h3 {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text-color);
+  -webkit-text-stroke: 1px var(--border-text);
+  letter-spacing: 2px;
+0);
+}
+
+.reveal {
+  filter: brightness(1);
+}
