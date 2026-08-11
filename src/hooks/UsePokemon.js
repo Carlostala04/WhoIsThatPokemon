@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { obtenerPokemonAleatorio } from "../service/pokemon";
 
-export function usePokemon() {
+export function usePokemon(generationId = 1) {
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,8 +9,10 @@ export function usePokemon() {
 
   useEffect(() => {
     let ignore = false;
+    setLoading(true);
+    setError(null);
 
-    obtenerPokemonAleatorio()
+    obtenerPokemonAleatorio(generationId)
       .then((data) => {
         if (ignore) return;
         setPokemon(data);
@@ -25,7 +27,7 @@ export function usePokemon() {
     return () => {
       ignore = true;
     };
-  }, [reloadIndex]);
+  }, [generationId, reloadIndex]);
 
   const refetch = useCallback(() => {
     setLoading(true);
