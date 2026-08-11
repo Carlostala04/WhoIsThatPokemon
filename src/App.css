@@ -93,6 +93,26 @@ label {
   cursor: pointer;
 }
 
+.loading-text {
+  font-family: var(--font);
+  color: var(--text-color);
+  -webkit-text-stroke: 1px var(--border-text);
+  letter-spacing: 3px;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  animation: loading-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .hint-message {
   color: #fff;
   font-weight: 600;

@@ -92,7 +92,7 @@ function App() {
           </select>
         </div>
         <div className="guess">
-          {loading && <p>Cargando...</p>}
+          {loading && <p className="loading-text">Cargando...</p>}
           {error && <p>Ocurrio un error al cargar el pokemon</p>}
           {pokemon && (
             <img
