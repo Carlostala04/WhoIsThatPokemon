@@ -87,6 +87,7 @@ label {
   border-radius: 999px;
   border: none;
   background: var(--text-color);
+  font-family: var(--font);
   color: #1a1a1a;
   font-weight: 700;
   text-transform: uppercase;
